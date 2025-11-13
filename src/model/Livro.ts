@@ -162,7 +162,7 @@ class Livro{
                     );
     
                     // Define o ID do Livro usando o valor retornado do banco
-                    novoLivro.setIdLivro(LivroBD.id_Livro);
+                    novoLivro.setIdLivro(LivroBD.id_livro);
     
                     // Adiciona o novo Livro à lista de Livro
                     listaDeLivro.push(novoLivro);

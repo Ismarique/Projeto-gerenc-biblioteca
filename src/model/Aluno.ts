@@ -132,7 +132,7 @@ class Aluno {
                 );
 
                 // Define o ID do Aluno usando o valor retornado do banco
-                novoAluno.setIdAluno(AlunoBD.id_Aluno);
+                novoAluno.setIdAluno(AlunoBD.id_aluno);
 
                 // Adiciona o novo Aluno à lista de Alunos
                 listaDeAlunos.push(novoAluno);

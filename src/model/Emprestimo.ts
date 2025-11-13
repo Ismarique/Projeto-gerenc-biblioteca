@@ -109,7 +109,7 @@ this.status_emprestimo = _status_emprestimo
                     );
     
                     // Define o ID do Emprestimo usando o valor retornado do banco
-                    novoEmprestimo.setId_emprestimo(EmprestimoBD.id_Emprestimo);
+                    novoEmprestimo.setId_emprestimo(EmprestimoBD.id_emprestimo);
     
                     // Adiciona o novo Emprestimo à lista de Emprestimos
                     listaDeEmprestimos.push(novoEmprestimo);
