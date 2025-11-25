@@ -96,11 +96,11 @@ class Emprestimo {
             respostaBD.rows.forEach((EmprestimoBD: any) => {
                 // Cria um novo objeto Emprestimo usando os dados da linha atual (nome, cpf, telefone)
                 const novoEmprestimo: Emprestimo = new Emprestimo(
-                    EmprestimoBD.idaluno,
-                    EmprestimoBD.idLivro,
-                    EmprestimoBD.dataEmprestimo,
-                    EmprestimoBD.dataDevolucao,
-                    EmprestimoBD.statusEmprestimo
+                    EmprestimoBD.id_aluno,
+                    EmprestimoBD.id_livro,
+                    EmprestimoBD.data_emprestimo,
+                    EmprestimoBD.data_devolucao,
+                    EmprestimoBD.status_emprestimo
                 );
 
                 // Define o ID do Emprestimo usando o valor retornado do banco
@@ -124,16 +124,16 @@ class Emprestimo {
     static async cadastrarEmprestimo(Emprestimo: EmprestimoDTO): Promise<boolean> {
         try {
 
-            const queryInsertClient: string = `INSERT INTO Emprestimo (idaluno,idLivro,dataEmprestimo,dataDevolucao,statusEmprestimo)
+            const queryInsertClient: string = `INSERT INTO Emprestimo (id_aluno,id_livro,data_emprestimo,data_devolucao,status_emprestimo)
                 VALUES ($1,$2,$3,$4,$5)
-                RETURNING idEmprestimo;`;
+                RETURNING id_emprestimo;`;
 
             const respostaBD = await database.query(queryInsertClient, [
-                Emprestimo.idAluno,
-                Emprestimo.idLivro,
-                Emprestimo.dataEmprestimo,
-                Emprestimo.dataDevolucao,
-                Emprestimo.statusEmprestimo
+                Emprestimo.id_aluno,
+                Emprestimo.id_livro,
+                Emprestimo.data_emprestimo,
+                Emprestimo.data_devolucao,
+                Emprestimo.status_emprestimo
             ]);
 
             if (respostaBD.rows.length > 0) {

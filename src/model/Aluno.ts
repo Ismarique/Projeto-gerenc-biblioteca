@@ -123,7 +123,7 @@ class Aluno {
                     AlunoBD.ra,
                     AlunoBD.nome,
                     AlunoBD.sobrenome,
-                    AlunoBD.dataNascimento,
+                    AlunoBD.data_nascimento,
                     AlunoBD.endereco,
                     AlunoBD.email,
                     AlunoBD.celular
@@ -150,16 +150,16 @@ class Aluno {
     static async cadastrarAluno(Aluno: AlunoDTO): Promise<boolean> {
         try {
 
-            const queryInsertClient: string = `INSERT INTO Aluno (ra,nome,sobrenome,data_nascimento,endereco,email,celular)
+            const queryInsertAluno: string = `INSERT INTO Aluno (ra,nome,sobrenome,data_nascimento,endereco,email,celular)
             VALUES ($1,$2,$3,$4,$5,$6,$7)
             RETURNING id_Aluno;`;
 
-            const respostaBD = await database.query(queryInsertClient, [
+            const respostaBD = await database.query(queryInsertAluno, [
                 Aluno.ra,
                 Aluno.nome.toUpperCase(),
-                Aluno.sobrenome,
+                Aluno.sobrenome.toUpperCase(),
                 Aluno.data_nascimento,
-                Aluno.endereco,
+                Aluno.endereco.toUpperCase(),
                 Aluno.email.toUpperCase(),
                 Aluno.celular
             ]);

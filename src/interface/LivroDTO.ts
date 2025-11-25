@@ -4,11 +4,11 @@ idLivro?: number,
 titulo: string,
 autor:string,
 editora:string,
-anoPublicacao: Date,
+ano_publicacao: string,
 isbn:string,
-quantTotal: number,
-quantDisponivel: number,
-valorAquisicao: Number,
-statusLivroEmprestado: string
+quant_total: number,
+quant_disponivel: number,
+valor_aquisicao: Number,
+status_livro_emprestado: string
 
 }

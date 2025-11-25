@@ -9,7 +9,7 @@ class Livro {
     private titulo: string
     private autor: string
     private editora: string
-    private anoPublicacao: Date
+    private anoPublicacao: string
     private isbn: number
     private quantTotal: number
     private quantDisponivel: number
@@ -21,7 +21,7 @@ class Livro {
         _titulo: string,
         _autor: string,
         _editora: string,
-        _anoPublicacao: Date,
+        _anoPublicacao: string,
         _isbn: number,
         _quantTotal: number,
         _quantDisponivel: number,
@@ -75,11 +75,11 @@ class Livro {
     }
 
 
-    public setAnoPublicacao(_anoPublicacao: Date): void {
+    public setAnoPublicacao(_anoPublicacao: string): void {
         this.anoPublicacao = _anoPublicacao
     }
 
-    public getAnoPublicacao(): Date {
+    public getAnoPublicacao(): string {
         return this.anoPublicacao;
     }
 
@@ -181,20 +181,20 @@ class Livro {
     static async cadastrarLivro(Livro: LivroDTO): Promise<boolean> {
         try {
 
-            const queryInsertClient: string = `INSERT INTO Livro (titulo, autor, editora, ano_publicacao, isbn, quant_total, quant_disponivel, valor_aquisicao, status_livro_emprestado)
+            const queryInsertLivro: string = `INSERT INTO Livro (titulo, autor, editora, ano_publicacao, isbn, quant_total, quant_disponivel, valor_aquisicao, status_livro_emprestado)
                 VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)
-                RETURNING idLivro;`;
+                RETURNING id_Livro;`;
 
-            const respostaBD = await database.query(queryInsertClient, [
-                Livro.titulo,
-                Livro.autor,
-                Livro.editora,
-                Livro.anoPublicacao,
+            const respostaBD = await database.query(queryInsertLivro, [
+                Livro.titulo.toUpperCase(),
+                Livro.autor.toUpperCase(),
+                Livro.editora.toUpperCase(),
+                Livro.ano_publicacao,
                 Livro.isbn,
-                Livro.quantTotal,
-                Livro.quantDisponivel,
-                Livro.valorAquisicao,
-                Livro.statusLivroEmprestado
+                Livro.quant_total,
+                Livro.quant_disponivel,
+                Livro.valor_aquisicao,
+                Livro.status_livro_emprestado
             ]);
 
             if (respostaBD.rows.length > 0) {
