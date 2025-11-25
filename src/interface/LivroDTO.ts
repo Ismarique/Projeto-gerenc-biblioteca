@@ -1,14 +1,14 @@
 
 export interface LivroDTO{
-id_livro?: number,
+idLivro?: number,
 titulo: string,
 autor:string,
 editora:string,
-ano_publicacao: Date,
+anoPublicacao: Date,
 isbn:string,
-quant_total: number,
-quant_disponivel: number,
-valor_aquisicao: Number,
-status_livro_emprestado: string
+quantTotal: number,
+quantDisponivel: number,
+valorAquisicao: Number,
+statusLivroEmprestado: string
 
 }

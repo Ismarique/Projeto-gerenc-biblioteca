@@ -189,12 +189,12 @@ class Livro {
                 Livro.titulo,
                 Livro.autor,
                 Livro.editora,
-                Livro.ano_publicacao,
+                Livro.anoPublicacao,
                 Livro.isbn,
-                Livro.quant_total,
-                Livro.quant_disponivel,
-                Livro.valor_aquisicao,
-                Livro.status_livro_emprestado
+                Livro.quantTotal,
+                Livro.quantDisponivel,
+                Livro.valorAquisicao,
+                Livro.statusLivroEmprestado
             ]);
 
             if (respostaBD.rows.length > 0) {
