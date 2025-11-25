@@ -19,7 +19,6 @@ class Emprestimo {
         _dataDevolucao: Date,
         _statusEmprestimo: string
     ) {
-
         this.idAluno = _idAluno
         this.idLivro = _idLivro
         this.dataEmprestimo = _dataEmprestimo

@@ -6,15 +6,15 @@ const database = new DatabaseModel().pool;
 
 class Livro {
     private idLivro: number = 0;
-    private titulo: string
-    private autor: string
-    private editora: string
-    private anoPublicacao: string
-    private isbn: number
-    private quantTotal: number
-    private quantDisponivel: number
-    private valorAquisicao: number
-    private statusLivroEmprestado: string
+    private titulo: string;
+    private autor: string;
+    private editora: string;
+    private anoPublicacao: string;
+    private isbn: number;
+    private quantTotal: number;
+    private quantDisponivel: number;
+    private valorAquisicao: number;
+    private statusLivroEmprestado: string;
 
     constructor(
 
