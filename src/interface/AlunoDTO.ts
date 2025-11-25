@@ -1,6 +1,6 @@
 
 export interface AlunoDTO{
-    id_aluno?: number,
+    idAluno?: number,
     ra:  string,
     nome: string,
     sobrenome: string,

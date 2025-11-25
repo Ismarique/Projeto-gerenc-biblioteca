@@ -1,5 +1,4 @@
 
-
 export interface LivroDTO{
 id_livro?: number,
 titulo: string,

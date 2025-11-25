@@ -4,7 +4,7 @@ import { DatabaseModel } from "./DatabaseModel.js"; // Importa a classe Database
 const database = new DatabaseModel().pool;
 
 class Aluno {
-    private idAluno: number;
+    private idAluno: number = 0;
     private ra: number;
     private nome: string;
     private sobrenome: string;
@@ -14,7 +14,6 @@ class Aluno {
     private celular: number;
 
     constructor(
-        _idAluno: number,
         _ra: number,
         _nome: string,
         _sobrenome: string,
@@ -23,7 +22,7 @@ class Aluno {
         _email: string,
         _celular: number
     ) {
-        this.idAluno = _idAluno
+
         this.ra = _ra
         this.nome = _nome
         this.sobrenome = _sobrenome
@@ -34,12 +33,14 @@ class Aluno {
     }
 
     public setIdAluno(_idAluno: number): void {
-        this.idAluno = _idAluno;
+        this.idAluno = _idAluno
     }
 
-    public getIdAluno(): number {
-        return this.idAluno;
+
+    public getidAluno(): number {
+        return this.idAluno
     }
+
 
     public setRa(_ra: number): void {
         this.ra = _ra;
@@ -98,9 +99,6 @@ class Aluno {
         return this.celular
     }
 
-
-
-
     /**
      * Retorna os Alunos cadastrados no banco de dados
      * @returns Lista com Alunos cadastrados
@@ -121,7 +119,7 @@ class Aluno {
             respostaBD.rows.forEach((AlunoBD: any) => {
                 // Cria um novo objeto Aluno usando os dados da linha atual (nome, cpf, telefone)
                 const novoAluno: Aluno = new Aluno(
-                    AlunoBD.id_aluno,
+
                     AlunoBD.ra,
                     AlunoBD.nome,
                     AlunoBD.sobrenome,
@@ -132,7 +130,7 @@ class Aluno {
                 );
 
                 // Define o ID do Aluno usando o valor retornado do banco
-                novoAluno.setIdAluno(AlunoBD.id_aluno);
+                novoAluno.setIdAluno(AlunoBD.idAluno);
 
                 // Adiciona o novo Aluno à lista de Alunos
                 listaDeAlunos.push(novoAluno);
@@ -187,7 +185,6 @@ class Aluno {
 
             if (respostaBD.rowCount != 0) {
                 const aluno: Aluno = new Aluno(
-                    respostaBD.rows[0].id_aluno,
                     respostaBD.rows[0].ra,
                     respostaBD.rows[0].nome,
                     respostaBD.rows[0].sobrenome,
@@ -198,7 +195,7 @@ class Aluno {
 
                 );
 
-                aluno.setIdAluno(respostaBD.rows[0].id_Aluno);
+                aluno.setRa(respostaBD.rows[0].ra);
 
                 return aluno;
 
@@ -211,10 +208,6 @@ class Aluno {
         }
 
     }
-
-
-
-
 
 }
 
